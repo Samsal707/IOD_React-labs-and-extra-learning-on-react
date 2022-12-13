@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8" />
+    <title>React Samples</title>
+</head>
+
+<body>
+    <!-- Target container -->
+    <div id="root"></div>
+
+    <!-- React library & ReactDOM (Development Version)-->
+    <script src="https://unpkg.com/react@16/umd/react.development.js">
+    </script>
+    <script src="https://unpkg.com/react-dom@16/umd/react-dom.development.js">
+
+
+    </script>
+
+    <script>
+        // Given the following array:
+        const secretIngredients = [
+                "1 cup unsalted butter",
+                "1 cup crunchy peanut butter",
+                "1 cup brown sugar",
+                "1 cup white sugar",
+                "2 eggs",
+                "2.5 cups all purpose flour",
+                "1 teaspoon baking powder",
+                "0.5 teaspoon salt"
+            ];
+
+        //we can build a react functional component this way:
+        function IngredientsList({ items }) {
+                return React.createElement(
+                    "ul",
+                    { className: "ingredients" },
+                    items.map((ingredient, i) =>
+                        React.createElement("li", { key: i }, ingredient)
+                    )
+                ); 
+
+            }
+
+        //then pass the secretIngridents as a property called items which is the second argument used in the createElement.
+        ReactDOM.render(
+                React.createElement(IngredientsList, { items: secretIngredients }, null),
+                document.getElementById("root")
+            );
+
+
+     
+          //on console logging there child elements have key properties. I have also added a key for the parent.
+    </script>
+</body>
+
+</html>
